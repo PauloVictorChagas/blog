@@ -15,20 +15,28 @@ order: 12
 <figure>
 
 ```plantuml
-@startuml
+Nos trechos:
+Mamifero m1 = new Animal();
+Cachorro c1 = new Animal();
+Cachorro c2 = new Mamifero();
+Morcego mo1 = new Animal();
+Morcego mo2 = new Mamifero();
 
-class Animal{
-    +void mover()
-}
+Tem um erro de hierarquia, onde as classes mais altas na hierarquia da herança estão tentando ser convertidas para classes mais baixas.
 
-class Mamifero{
-    +void mamar()
-}
+Nos trechos:
+Cachorro c4 = new Morcego();
+Morcego mo3 = new Cachorro();
+Morcego mo6 = a6;
 
-Animal <|-- Mamifero
-Mamifero <|-- Morcego
-Mamifero <|-- Cachorro
-@enduml
+Um morcego e um cachorro são classes irmãs na hierarquia. Não há relação de herança direta entre eles.
+
+No trecho:
+Animal a5 = new Cachorro();
+a5.mamar();
+
+O metodo mamar não é da Classe animal pra ser chamada e sim de mamifero
+
 ```
 
 <figcaption>Relação entre Animal, Mamímero, Morcego e Cachorro.</figcaption>
